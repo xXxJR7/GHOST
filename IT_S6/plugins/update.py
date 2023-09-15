@@ -71,7 +71,7 @@ async def upd_inl(client, inline_query):
         )
       remove("Update_Logs.txt")
 
-@it_s6.on_message(filters.command("",HNDLR) & filters.me)
+@it_s6.on_message(filters.command(update_command, HNDLR) & filters.me)
 async def update(client, message):
     global changelog_str, update_markup, ups_rem, ac_br, repo, status
     update_markup = up_menu(message.chat.id)
