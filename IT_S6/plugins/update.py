@@ -16,7 +16,7 @@ async def gen_chlog(repo, diff):
     d_form = "%d/%m/%y"
     for c in repo.iter_commits(diff):
         ch_log += (
-            f"{SORUCE_EMJ} `[{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n`"
+            f"{SORUCE_EMJ} `[{c.committed_datetime.strftime(d_form)}] : {c.summary}`\n"
         )
     return ch_log
 
@@ -36,7 +36,7 @@ async def updateme_requirements():
 def up_menu(chat_id):
     update_markup = types.InlineKeyboardMarkup(
         [[
-            types.InlineKeyboardButton("Update Now", callback_data=f"up_{chat_id}"),
+            types.InlineKeyboardButton("𝐔𝐩𝐝𝐚𝐭𝐞 𝐍𝐨𝐰", callback_data=f"up_{chat_id}"),
         ]]
     )
     return update_markup    
@@ -115,13 +115,13 @@ async def update(client, message):
             result = await it_s6.get_inline_bot_results(config.BOT_USER, query="update_d")
             sent_message = await it_s6.send_inline_bot_result(message.chat.id, result.query_id, result.results[0].id)
             message_id = sent_message.updates[0].id
-            redis.hset('last_update_msg_ids', message.from_user.id, message_id)
+            redis.hset('last_update_msg_ids', message.chat.id, message_id)
         else:
             await status.delete()
             result = await it_s6.get_inline_bot_results(config.BOT_USER, query="update")
             sent_message = await it_s6.send_inline_bot_result(message.chat.id, result.query_id, result.results[0].id)
             message_id = sent_message.updates[0].id
-            redis.hset('last_update_msg_ids', message.from_user.id, message_id)
+            redis.hset('last_update_msg_ids', message.chat.id, message_id)
 
     else:
         await status.edit(update_msg4)
