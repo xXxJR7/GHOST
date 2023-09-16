@@ -310,7 +310,7 @@ res_msg4 = f"**{SORUCE_EMJ} Restarted Successfully**"
 
 #update
 c_update = f"**{SORUCE_EMJ} Checking For Updates ...**"
-update_msg1 = "**{} Updates available\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n{} Version : {}\n{} Changelog :** \n\n{}"
+update_msg1 = "**{} Update Available\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n{} Version : {}\n{} CHANGELOG :** \n\n{}"
 update_msg2 = f"**{SORUCE_EMJ} Changelog is too big sending it as a file**"
 update_msg3 = f"**{SORUCE_EMJ} Updated Successfully \n{SORUCE_EMJ} Restarting Now ...**"
 update_msg4 = f"**{SORUCE_EMJ} Userbot is Up-to-date**"
