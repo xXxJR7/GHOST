@@ -100,7 +100,7 @@ async def Forbidden_Words_ls(client, message):
     c_words = redis.smembers(f"Forbidden_Words {message.chat.id}")
     if c_words is not None:
         for word in c_words:
-            if word in message.text and is not None:
+            if word in message.text and not None:
                 warn_Numbers = redis.hget("Forbidden_Words_Numbers", message.from_user.id)
                 if warn_Numbers is None:
                     warn_Numbers = 2
