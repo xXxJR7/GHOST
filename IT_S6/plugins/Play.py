@@ -290,9 +290,9 @@ async def progress(current, total):
 async def playv_command(client, message):
     from ..Helper import sod
     global m1, m2, photo, msg
-    exists = redis.exists(" SUDOERS")
+    exists = redis.exists("SUDOERS")
     if exists:
-        sudoers = redis.smembers(" SUDOERS")
+        sudoers = redis.smembers("SUDOERS")
     else:
         sudoers = set()
     if str(message.from_user.id) in sudoers:
