@@ -248,7 +248,12 @@ async def v7(client, callback_query):
 
 @bot.on_callback_query(filters.regex('^r1_hndlr'))
 async def r1_hndlr(client, callback_query):
-          if "NO_HNDLR" in redis.get("HNDLR"):
+          exists = redis.exists("HNDLR")
+          if exists:
+             hndlr = redis.get("HNDLR")
+          else:
+             hndlr = set()
+          if "NO_HNDLR" in hndlr:
              return await callback_query.edit_message_text(v_msg21__, reply_markup=BACK)
           redis.set("HNDLR", "NO_HNDLR")
           await callback_query.edit_message_text(v_msg21_, reply_markup=BACK)
@@ -260,7 +265,7 @@ async def r1_hndlr(client, callback_query):
 async def B_ar(client, callback_query):
         exists = redis.exists("LANGUAGE")
         if exists:
-           languages = redis.smembers("LANGUAGE")
+           languages = redis.get("LANGUAGE")
         else:
            languages = set()
         if "ar" in languages:
@@ -275,7 +280,7 @@ async def B_ar(client, callback_query):
 async def B_en(client, callback_query):
         exists = redis.exists("LANGUAGE")
         if exists:
-           languages = redis.smembers("LANGUAGE")
+           languages = redis.get("LANGUAGE")
         else:
            languages = set()
         if "en" in languages:
