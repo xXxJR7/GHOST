@@ -200,6 +200,10 @@ from pyrogram.raw.functions.phone import CreateGroupCall as g
 async def playa_command(client, message):
     from ..Helper import sod
     global m1, m2, msg
+    try:
+        await message.delete()
+    except:
+        pass
     exists = redis.exists("SUDOERS")
     if exists:
         sudoers = redis.smembers("SUDOERS")
@@ -290,6 +294,10 @@ async def progress(current, total):
 async def playv_command(client, message):
     from ..Helper import sod
     global m1, m2, photo, msg
+    try:
+        await message.delete()
+    except:
+        pass
     exists = redis.exists("SUDOERS")
     if exists:
         sudoers = redis.smembers("SUDOERS")
