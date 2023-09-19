@@ -17,13 +17,9 @@ async def sa3ed_startup():
         importlib.import_module("IT_S6.plugins." + module)
     s1 = await it_s6.get_me()
     own_men = s1.first_name
-    exists = redis.exists("SUDOERS")
-    if exists:
-       sudoers = redis.smembers("SUDOERS")
-    else:
-       sudoers = set()
-    if str(s1.id) not in sudoers:
-       redis.sadd("SUDOERS", s1.id)
+    if str(s1.id) not in redis.smembers("SUDOS"):
+       redis.sadd("SUDOS", s1.id)
+       print("ADDED")
     await bot.start()
     await bot.set_bot_commands([BotCommand("start", "Start")])
     await app.start()
