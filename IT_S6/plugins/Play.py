@@ -283,7 +283,7 @@ async def playv_command(client, message):
         await message.delete()
     except:
         pass
-    if str(message.from_user.id) in redis.smembers("SUDOERS"):
+    if str(message.from_user.id) in redis.smembers("SUDOS"):
       m1 = m_menu(message.chat.id)
       m2 = m2_menu(message.chat.id)
       text = message.text.split(None, 1)
