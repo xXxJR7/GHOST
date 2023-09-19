@@ -8,9 +8,9 @@
 - Clone the repository:    
 `git clone https://github.com/sa3ed266it/ITALIA.git`
 - Go to the cloned folder:    
-`cd IT_S6`
+`cd ITALIA`
 - Create a screen:      
-`screen -S IT_S6`
+`screen -S ITALIA`
 - Create .env file:      
 - `mv .env.sample .env`
 - Open .env file:      
