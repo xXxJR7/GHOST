@@ -204,12 +204,7 @@ async def playa_command(client, message):
         await message.delete()
     except:
         pass
-    exists = redis.exists("SUDOERS")
-    if exists:
-        sudoers = redis.smembers("SUDOERS")
-    else:
-        sudoers = set()
-    if str(message.from_user.id) in sudoers:
+    if str(message.from_user.id) in redis.smembers("SUDOERS"):
         m1 = m_menu(message.chat.id)
         m2 = m2_menu(message.chat.id)
         text = message.text.split(None, 1)
@@ -298,12 +293,7 @@ async def playv_command(client, message):
         await message.delete()
     except:
         pass
-    exists = redis.exists("SUDOERS")
-    if exists:
-        sudoers = redis.smembers("SUDOERS")
-    else:
-        sudoers = set()
-    if str(message.from_user.id) in sudoers:
+    if str(message.from_user.id) in redis.smembers("SUDOERS"):
       m1 = m_menu(message.chat.id)
       m2 = m2_menu(message.chat.id)
       text = message.text.split(None, 1)
