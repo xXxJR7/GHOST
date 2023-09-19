@@ -22,9 +22,7 @@ async def sa3ed_startup():
        sudoers = redis.smembers("SUDOERS")
     else:
        sudoers = set()
-    if str(s1.id) in sudoers:
-       pass
-    else:
+    if str(s1.id) not in sudoers:
        redis.sadd("SUDOERS", s1.id)
     await bot.start()
     await bot.set_bot_commands([BotCommand("start", "Start")])
