@@ -40,7 +40,10 @@ async def forward_func(client, message):
                 [
                 types.InlineKeyboardButton(f"{user.from_user.first_name}",url=f"https://t.me/c/={ids}/={message_id}")
                 ]])
-  g = await it_s6.get_chat_member(message.chat.id, message.from_user.id)
+  try:
+     g = await it_s6.get_chat_member(message.chat.id, message.from_user.id)
+  except:
+     pass
   if message.mentioned:
     if not g.user.is_bot:
          if message.photo:
