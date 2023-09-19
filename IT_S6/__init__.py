@@ -35,7 +35,7 @@ from pytgcalls import PyTgCalls
 app = PyTgCalls(it_s6_music)
 
 MODULE = []
-UPSTREAM_REPO_URL = "https://github.com/sa3ed266it/IT_S6.git"
+UPSTREAM_REPO_URL = "https://github.com/sa3ed266it/ITALIA.git"
 LANG = redis.get("LANGUAGE") or config.LANGUAGE
 SORUCE_EMJ = redis.get("SORUCE_EMJ") or "•"
 HNDLR = redis.get("HNDLR") or "."
