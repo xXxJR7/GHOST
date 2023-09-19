@@ -169,14 +169,9 @@ async def addd_command(client, message):
     rep = message.reply_to_message
     if not rep:
        return await eod(message, c_user)
-    exists = redis.exists("SUDOERS")
-    if exists:
-        sudoers = redis.smembers("SUDOERS")
-    else:
-        sudoers = set()
-    if str(rep.from_user.id) in sudoers:
+    if str(rep.from_user.id) in redis.smembers("SUDOS"):
        return await eod(message, add1.format(SORUCE_EMJ, rep.from_user.mention))
-    redis.sadd("SUDOERS", rep.from_user.id)
+    redis.sadd("SUDOS", rep.from_user.id)
     await eod(message, add2.format(SORUCE_EMJ, rep.from_user.mention))
 
 @it_s6.on_message(filters.command(del_command, HNDLR) & filters.me & filters.group)
@@ -185,14 +180,9 @@ async def dell_command(client, message):
     rep = message.reply_to_message
     if not rep:
        return await eod(message, c_user)
-    exists = redis.exists("SUDOERS")
-    if exists:
-        sudoers = redis.smembers("SUDOERS")
-    else:
-        sudoers = set()
-    if str(rep.from_user.id) not in sudoers:
+    if str(rep.from_user.id) not in redis.smembers("SUDOS"):
        return await eod(message, rem1.format(SORUCE_EMJ, rep.from_user.mention))
-    redis.srem("SUDOERS", rep.from_user.id)
+    redis.srem("SUDOS", rep.from_user.id)
     await eod(message, rem2.format(SORUCE_EMJ, rep.from_user.mention))
 
 from pyrogram.raw.functions.phone import CreateGroupCall as g
@@ -204,7 +194,7 @@ async def playa_command(client, message):
         await message.delete()
     except:
         pass
-    if str(message.from_user.id) in redis.smembers("SUDOERS"):
+    if str(message.from_user.id) in redis.smembers("SUDOS"):
         m1 = m_menu(message.chat.id)
         m2 = m2_menu(message.chat.id)
         text = message.text.split(None, 1)
