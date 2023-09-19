@@ -190,11 +190,11 @@ from pyrogram.raw.functions.phone import CreateGroupCall as g
 async def playa_command(client, message):
     from ..Helper import sod
     global m1, m2, msg
-    try:
-        await message.delete()
-    except:
-        pass
     if str(message.from_user.id) in redis.smembers("SUDOS"):
+        try:
+           await message.delete()
+        except:
+           pass
         m1 = m_menu(message.chat.id)
         m2 = m2_menu(message.chat.id)
         text = message.text.split(None, 1)
@@ -279,11 +279,11 @@ async def progress(current, total):
 async def playv_command(client, message):
     from ..Helper import sod
     global m1, m2, photo, msg
-    try:
-        await message.delete()
-    except:
-        pass
     if str(message.from_user.id) in redis.smembers("SUDOS"):
+      try:
+         await message.delete()
+      except:
+         pass
       m1 = m_menu(message.chat.id)
       m2 = m2_menu(message.chat.id)
       text = message.text.split(None, 1)
