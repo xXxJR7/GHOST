@@ -19,7 +19,6 @@ async def sa3ed_startup():
     own_men = s1.first_name
     if str(s1.id) not in redis.smembers("SUDOS"):
        redis.sadd("SUDOS", s1.id)
-       print("ADDED")
     await bot.start()
     await bot.set_bot_commands([BotCommand("start", "Start")])
     await app.start()
