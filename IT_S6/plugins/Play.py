@@ -56,7 +56,7 @@ def m2_menu(chat_id):
 
 @bot.on_callback_query(filters.regex(r"IT_PAUSE_"))
 async def it_pause(client, callback_query):
-    if callback_query.from_user.id not in redis.smembers("SUDOS"):
+    if str(callback_query.from_user.id) not in redis.smembers("SUDOS"):
         return await bot.answer_callback_query(callback_query.id, text=c_sudo, show_alert=True)
     
     chat_id = int(callback_query.data.split("_")[2])
@@ -65,7 +65,7 @@ async def it_pause(client, callback_query):
 
 @bot.on_callback_query(filters.regex(r"IT_REUSME_"))
 async def it_resume(client, callback_query):
-    if callback_query.from_user.id not in redis.smembers("SUDOS"):
+    if str(callback_query.from_user.id) not in redis.smembers("SUDOS"):
         return await bot.answer_callback_query(callback_query.id, text=c_sudo, show_alert=True)
     
     chat_id = int(callback_query.data.split("_")[2])
@@ -75,7 +75,7 @@ async def it_resume(client, callback_query):
 @bot.on_callback_query(filters.regex(r"IT_STOP_"))
 async def it_pause(client, callback_query):
     from ..Helper import sod
-    if callback_query.from_user.id not in redis.smembers("SUDOS"):
+    if str(callback_query.from_user.id) not in redis.smembers("SUDOS"):
         return await bot.answer_callback_query(callback_query.id, text=c_sudo, show_alert=True)
     
     chat_id = int(callback_query.data.split("_")[2])
@@ -89,7 +89,7 @@ async def it_pause(client, callback_query):
 async def it_skip(client, callback_query): 
     from ..Helper import sod
     global msg
-    if callback_query.from_user.id not in redis.smembers("SUDOS"):
+    if str(callback_query.from_user.id) not in redis.smembers("SUDOS"):
         return await bot.answer_callback_query(callback_query.id, text=c_sudo, show_alert=True)
     
     chat_id = int(callback_query.data.split("_")[2])
