@@ -1,6 +1,5 @@
-from pyrogram import filters, enums, types
+from pyrogram import filters, enums, types, errors
 from IT_S6 import it_s6, bot, redis, My_User, SORUCE_EMJ, MODULE, HNDLR
-from pyrogram.errors import RPCError
 from ..Langs import *
 from .__Help import MENU
 import strings, config
@@ -158,7 +157,7 @@ async def chat_mute(client, message):
                     await message.delete()
                     result = await it_s6.get_inline_bot_results(config.BOT_USER, query="un_mute")
                     await it_s6.send_inline_bot_result(message.chat.id, result.query_id, result.results[0].id)
-            except RPCError as err:
+            except errors.RPCError as err:
                 await eod(message, mute_err.format(SORUCE_EMJ, err, SORUCE_EMJ, SORUCE_EMJ))
         else:
             await eod(message, c_user1)
@@ -194,7 +193,7 @@ async def chat_unmute(client, message):
                 else:
                     redis.srem(key, un_rep.id)
                     await message.edit(mute_msg8.format(SORUCE_EMJ, un_rep.mention))
-            except RPCError as err:
+            except errors.RPCError as err:
                 await eod(message, mute_err.format(SORUCE_EMJ, err, SORUCE_EMJ, SORUCE_EMJ))
         else:
             await eod(message, c_user1)
