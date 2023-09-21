@@ -5,13 +5,11 @@ from .Must_Join import must_join_ls
 from .prevent import Forbidden_Words_ls, preventuserbot_ls
 from .Log import forward_func
 
-@it_s6.on_message(filters.group & filters.create(lambda it, s6, message: redis.get("s_log") is not None and "True" in redis.get("s_log")) & ~filters.me)
-async def forward_msgs(client, message):
-    await forward_func(client, message)
-
 @it_s6.on_message(filters.group & ~filters.me & ~filters.bot)
 async def on_message(client, message):
     if message.from_user:
+        if redis.get("s_log") is not None and "True" in redis.get("s_log"):
+           await forward_func(client, message)
         if str(message.chat.id) in redis.smembers("mute_all"):
             await listen_gr2(client, message)
         if str(message.from_user.id) in redis.smembers(f"mute_in_chat:{message.chat.id}"):
