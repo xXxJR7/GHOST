@@ -56,7 +56,7 @@ async def unprevent_word(client, message):
 def un_m(chat_id, user_id):
     unmute_markup = types.InlineKeyboardMarkup(
         [[
-            types.InlineKeyboardButton("Unmute", callback_data=f"U_{chat_id, user_id}")
+            types.InlineKeyboardButton("𝐔𝐧𝐦𝐮𝐭𝐞", callback_data=f"U_{chat_id, user_id}")
         ]]
     )
     return unmute_markup
