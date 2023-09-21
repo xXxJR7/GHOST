@@ -76,14 +76,14 @@ v_msg27 = "**{} AutoName Emoji Has Been Changed To : {}**"
 help_command = "help"
 
 mute_all_command = "mute all"
-mute_all_us = f"{SORUCE_EMJ} Use For Mute All Group Members\n{SORUCE_EMJ} Groups Only"
+mute_all_us = f"**{SORUCE_EMJ} Use For Mute All Group Members\n{SORUCE_EMJ} Groups Only**"
 mute_command = "mute"
-mute_us = f"{SORUCE_EMJ} Use It In Private And Groups\n{SORUCE_EMJ} Reply To User Or Use Username"
+mute_us = f"**{SORUCE_EMJ} Use It In Private And Groups\n{SORUCE_EMJ} Reply To User Or Use Username**"
 
 unmute_all_command = "unmute all"
-unmute_all_us = f"{SORUCE_EMJ} Use For Unmute Them\n{SORUCE_EMJ} Groups Only"
+unmute_all_us = f"**{SORUCE_EMJ} Use For Unmute Them\n{SORUCE_EMJ} Groups Only**"
 unmute_command = "unmute"
-unmute_us = f"{SORUCE_EMJ} Use It In Private And Groups\n{SORUCE_EMJ} By Reply To User Or Use Username"
+unmute_us = f"**{SORUCE_EMJ} Use It In Private And Groups\n{SORUCE_EMJ} By Reply To User Or Use Username**"
 
 ban_command = "ban"
 ban_us = f"**{SORUCE_EMJ} Use For Ban Users In Group and Private\n{SORUCE_EMJ} If Group : Reply To User Or Use Username\n{SORUCE_EMJ} If Private : Just Type It**"
@@ -110,10 +110,10 @@ restart_command = "restart"
 restart_us = f"**{SORUCE_EMJ} Use For Restart Userbot**"
 
 update_command = "update"
-update_us = f"{SORUCE_EMJ} Use For Check If Update Available"
+update_us = f"**{SORUCE_EMJ} Use For Check If Update Available**"
 
 mention_command = "all"
-mention_us = f"{SORUCE_EMJ} User For Mention All Chat Members\n{SORUCE_EMJ} You Can Type Info With It Or Reply "
+mention_us = f"**{SORUCE_EMJ} User For Mention All Chat Members\n{SORUCE_EMJ} You Can Type Info With It Or Reply**"
 
 prevent_word_command = "prevent"
 prevent_us1 = f"**{SORUCE_EMJ} Use For Prevent Userbot Commands**"
@@ -131,10 +131,10 @@ del_command= "del sudo"
 del_command_us = f"**{SORUCE_EMJ} To Delete User From Sudoers Menu\n{SORUCE_EMJ} Reply To User**"
 
 telegraph_command = "telegraph"
-telegraph_us = f"**{SORUCE_EMJ} Use For Uploading Photos To Telegraph Url\n{SORUCE_EMJ} Reply To Photo"
+telegraph_us = f"**{SORUCE_EMJ} Use For Uploading Photos To Telegraph Url\n{SORUCE_EMJ} Reply To Photo**"
 
 id_command = "id"
-id_us = f"**{SORUCE_EMJ} Use For Get Some Info About You And Users\n{SORUCE_EMJ} If Your Info : Just Type It\n{SORUCE_EMJ} If User Info : Reply To User"
+id_us = f"**{SORUCE_EMJ} Use For Get Some Info About You And Users\n{SORUCE_EMJ} If Your Info : Just Type It\n{SORUCE_EMJ} If User Info : Reply To User**"
 
 autoname_command = "autoname"
 autoname_us = f"**{SORUCE_EMJ} Use For Start Autoname**"
@@ -147,9 +147,9 @@ stop_log_command = "stop log"
 stop_log_us = f"**{SORUCE_EMJ} Use For Stop forward Incoming Messages To Group Log**"
 
 lock_command = "lock chat"
-lock_command_us = f"**{SORUCE_EMJ} Use For Lock Chat Messages"
+lock_command_us = f"**{SORUCE_EMJ} Use For Lock Chat Messages**"
 unlock_command = "open chat"
-unlock_command_us = f"**{SORUCE_EMJ} Use For Open Chat Messages"
+unlock_command_us = f"**{SORUCE_EMJ} Use For Open Chat Messages**"
 
 clone_command = "clone"
 clone_us = f"**{SORUCE_EMJ} Use For Clone User Information\n{SORUCE_EMJ} Just Reply To User**"
@@ -183,7 +183,10 @@ c_pv = f"**{SORUCE_EMJ} Use It In Private Only**"
 #check_user
 c_user = f"**{SORUCE_EMJ} Reply To User**"
 c_user1 = f"**{SORUCE_EMJ} Reply To User Or Type His Username**"
-c_user2 = "{} Hello {} I'm Assistant Bot Of {}"
+c_user2 = "**{} Hello {} I'm Assistant Bot Of {}**"
+
+#check_sudo
+c_sudo = f"{SORUCE_EMJ} 𝐅𝐨𝐫 𝐒𝐮𝐝𝐨𝐞𝐫𝐬 𝐎𝐧𝐥𝐲"
 
 #check_admin
 c_admin = f"**{SORUCE_EMJ} You Should Be Admin To Use This Command**"
@@ -202,9 +205,9 @@ c_Permission1 = f"**{SORUCE_EMJ} You Didn't Have Delete Messages Permission**"
 c_media = f"**{SORUCE_EMJ} You Should Reply To Video or Photo**"
 
 #play
-add1 = "**{} {} Added To Sudoers Menu Before"
+add1 = "**{} {} Added To Sudoers Menu Before**"
 add2 = "**{} {} Added To Sudoers Menu**"
-rem1 = "**{} {} Not In Sudoers Menu"
+rem1 = "**{} {} Not In Sudoers Menu**"
 rem2 = "**{} {} Deleted From Sudoers Menu**"
 search_m = "🔎"
 d_failed = f"**{SORUCE_EMJ} Download Failed**"
@@ -337,7 +340,7 @@ prevent_msg10 = f"**{SORUCE_EMJ} Destroy Chat Has Been Allowed**"
 prevent_msg11 = f"**{SORUCE_EMJ} This Word Has Been Removed**"
 prevent_msg12 = f"**{SORUCE_EMJ} This Word Not Existed**"
 prevent_msg13 = "**{} User : {}\n{} Has Been Muted\n{} Reason : Use Bad Words Twice**"
-prevent_msg14 = "{} Hey {}\n{} Please Don't Use This Word Again\n{} You Have {} | 2 Warns"
+prevent_msg14 = "{} Hey {}\n{} Please Don't Use This Word Again\n{} You Have {} | 2 Warns**"
 prevent_msg15 = "**{} User : {}\n{} Has Been Muted\n{} Reason : Use Userbot Commands 3 Times**"
-prevent_msg16 = "{} Hey {}\n{} Userbot Commands Not Allowed\n{} Please Don't Use It Again\n{} You Have {} | 3 Warns"
-prevent_msg17 = "{} User {} Has Been Banned\n{} Because He Banned More Than 3 Users"
+prevent_msg16 = "**{} Hey {}\n{} Userbot Commands Not Allowed\n{} Please Don't Use It Again\n{} You Have {} | 3 Warns**"
+prevent_msg17 = "**{} User {} Has Been Banned\n{} Because He Banned More Than 3 Users**"
