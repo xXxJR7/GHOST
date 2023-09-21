@@ -36,7 +36,7 @@ async def pv_unmute(client, message):
 async def chat_mute(client, message):
     from ..Helper import eod
     chat_id = str(message.chat.id)
-    key = "mute_in_chat:{chat_id}"
+    key = f"mute_in_chat:{chat_id}"
     rep = message.reply_to_message
     s1 = await client.get_chat_member(chat_id, it_s6.me.id)
     if s1.status not in [enums.ChatMemberStatus.OWNER, enums.ChatMemberStatus.ADMINISTRATOR]:
@@ -77,7 +77,7 @@ async def chat_mute(client, message):
 async def chat_unmute(client, message):
     from ..Helper import eod
     chat_id = str(message.chat.id)
-    key = "mute_in_chat:{chat_id}"
+    key = f"mute_in_chat:{chat_id}"
     rep = message.reply_to_message
     if rep:
         s2 = await client.get_chat_member(message.chat.id, rep.from_user.id)
