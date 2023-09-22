@@ -198,7 +198,7 @@ async def dell_command(client, message):
     await eod(message, rem2.format(SORUCE_EMJ, rep.from_user.mention))
 
 from pyrogram.raw.functions.phone import CreateGroupCall as g
-@it_s6.on_message(filters.command(play_command, HNDLR) & filters.group)
+@it_s6.on_message(filters.command(play_command, HNDLR) & filters.group & filters.create(lambda it, s6, message: redis.get("PLAY_C") is not None and "True" in redis.get("PLAY_C")))
 async def playa_command(client, message):
     from ..Helper import sod
     global m1, m2, msg
@@ -287,7 +287,7 @@ async def playa_command(client, message):
 async def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
-@it_s6.on_message(filters.command(video_command, HNDLR) & filters.group)
+@it_s6.on_message(filters.command(video_command, HNDLR) & filters.group & filters.create(lambda it, s6, message: redis.get("PLAY_C") is not None and "True" in redis.get("PLAY_C")))
 async def playv_command(client, message):
     from ..Helper import sod
     global m1, m2, photo, msg
@@ -548,6 +548,8 @@ back_button = types.InlineKeyboardMarkup(
 async def b_play(client, callback_query):
     if callback_query.from_user.id != it_s6.me.id:
        return await bot.answer_callback_query(callback_query.id, text=c_me, show_alert=True)
+    if not redis.get("PLAY_C"):
+       return await callback_query.edit_message_text(c_music.format(SORUCE_EMJ, f"https://t.me/{config.BOT_USER}?start=set"), reply_markup=back_button) 
     return await callback_query.edit_message_text(
         strings.HELP_CMD.format(module=__mod_name__, help=__help__),
         reply_markup=back_button)
