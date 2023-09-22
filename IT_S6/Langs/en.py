@@ -1,4 +1,4 @@
-from IT_S6 import SORUCE_EMJ
+from IT_S6 import SORUCE_EMJ, HNDLR
 
 #Made By Italia - @IT_S6
 
@@ -37,6 +37,7 @@ v5_ = "𝐀𝐮𝐭𝐨𝐧𝐚𝐦𝐞 𝐅𝐨𝐧𝐭"
 v6_ = "𝐀𝐮𝐭𝐨𝐧𝐚𝐦𝐞 𝐄𝐌𝐉"
 v7_ = "𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞 🌐"
 v8_ = "𝐑𝐞𝐦𝐨𝐯𝐞 𝐇𝐍𝐃𝐋𝐑"
+v9_ = "𝐀𝐜𝐭𝐢𝐯𝐞 𝐏𝐥𝐚𝐲"
 v_en = "𝐄𝐧𝐠𝐥𝐢𝐬𝐡"
 v_ar = "𝐀𝐫𝐚𝐛𝐢𝐜"
 v_rem = "𝐑𝐞𝐦𝐨𝐯𝐞 𝐏𝐢𝐜"
@@ -179,6 +180,11 @@ c_group = f"**{SORUCE_EMJ} Use This Command In Groups Only**"
 
 #check_pv
 c_pv = f"**{SORUCE_EMJ} Use It In Private Only**"
+
+#check_music_var
+c_music = "{} 𝐀𝐜𝐭𝐢𝐯𝐞 𝐈𝐭 𝐅𝐢𝐫𝐬𝐭 𝐅𝐫𝐨𝐦 [𝐇𝐞𝐫𝐞]({})"
+c_music1 = f"**{SORUCE_EMJ} Do You Will Play Songs ?**"
+c_music2 = f"**{SORUCE_EMJ} Play Commands Activated Before**"
 
 #check_user
 c_user = f"**{SORUCE_EMJ} Reply To User**"
