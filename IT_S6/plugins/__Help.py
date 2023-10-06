@@ -42,7 +42,7 @@ MENU = types.InlineKeyboardMarkup(
              types.InlineKeyboardButton(h6_,callback_data="b_locks"),
              ],
              [
-             types.InlineKeyboardButton(h7_,callback_data="b_pmsec"),
+             types.InlineKeyboardButton(h7_,callback_data="b_PMSecurity"),
              types.InlineKeyboardButton(h8_,callback_data="b_must_join"),
              ],
              [
