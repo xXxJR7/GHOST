@@ -6,14 +6,14 @@ import config, asyncio, redis, sys, requests, random, os, subprocess
 REDIS_INFO = f"redis://:{config.REDIS_PASSWORD}@{config.REDIS_URL}"
 redis = redis.from_url(REDIS_INFO, decode_responses=True)
 
-SESSION1 = redis.get("SESSION1") or config.SESSION1
+SESSION = redis.get("SESSION") or config.SESSION
 
 it_s6=Client(
     "IT_S6",
-    api_id = config.API_ID,
-    api_hash = config.API_HASH,
+    config.API_ID,
+    config.API_HASH,
     in_memory=True,
-    session_string = SESSION1
+    session_string=SESSION
 )
 
 bot = Client(
@@ -22,17 +22,6 @@ bot = Client(
     config.API_HASH,
     bot_token=config.BOT_TOKEN,
 )
-
-it_s6_music=Client(
-    "IT_S6_MUSIC",
-    api_id = config.API_ID,
-    api_hash = config.API_HASH,
-    in_memory=True,
-    session_string = config.SESSION2
-)
-
-from pytgcalls import PyTgCalls
-app = PyTgCalls(it_s6_music)
 
 MODULE = []
 UPSTREAM_REPO_URL = "https://github.com/sa3ed266it/ITALIA.git"
@@ -69,12 +58,9 @@ def gen_session1():
    subprocess.Popen([sys.executable, "-B", "-m", "IT_S6"], close_fds=True)
    sys.exit(0)
 
-if not SESSION1:
-   print("SESSION1 Not Found")
+if not SESSION:
+   print("SESSION Not Found")
    gen_session1()
-
-if not config.SESSION2:
-   app = PyTgCalls(it_s6)
 
 if not config.REDIS_URL:
    print("REDIS_URL Not Found")
@@ -109,42 +95,6 @@ if not config.BOT_USER:
 LOG = redis.get("LOGS") or config.LOGS
 if not LOG:
    print("LOG GROUP Not Found")
-   it_s6.start()
-   photos = random.choice(["https://images.alphacoders.com/107/1071645.jpg",
-                        "https://www.pixel4k.com/wp-content/uploads/2019/03/spiderman-miles-lost-in-space-4k_1553071367.jpg",
-                        "https://free4kwallpapers.com/uploads/originals/2022/04/20/rubiks-cube-digital-art-wallpaper.jpg",
-                        "https://wallpapercave.com/wp/wp2577314.jpg",
-                        "https://free4kwallpapers.com/uploads/originals/2020/09/11/firewatch-dark-version-wallpaper.jpg"])
-   print("Making GroupLog ...")
-   s4 =  it_s6.create_supergroup(
-       title="IT_S6_LOGS",
-       description="This is Group Log For You")
-   sleep(0.3)
-   redis.set("LOGS", int(s4.id))
-   it_s6.add_chat_members(s4.id, "@"+config.BOT_USER)
-   sleep(0.3)
-   it_s6.promote_chat_member(s4.id, "@"+config.BOT_USER, types.ChatPrivileges(
-            can_manage_chat=True,
-            can_delete_messages=True,
-            can_manage_video_chats=True,
-            can_restrict_members=True,
-            can_promote_members=True,
-            can_change_info=True,
-            can_post_messages=True,
-            can_edit_messages=True,
-            can_invite_users=True,
-            can_pin_messages=True
-            ))
-   sleep(0.3)
-   it_s6.set_administrator_title(s4.id, "@"+config.BOT_USER, title="Assistant")
-   sleep(0.3)
-   response = requests.get(photos)
-   with open("sa3ed.jpg", "wb") as ph:
-          ph.write(response.content)
-   it_s6.set_chat_photo(s4.id, photo="sa3ed.jpg")
-   sleep(0.3)
-   os.remove("sa3ed.jpg")
-   subprocess.Popen([sys.executable, "-B", "-m", "IT_S6"], close_fds=True)
    sys.exit(0)
 
 async def gen_session2():
