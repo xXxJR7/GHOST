@@ -1,6 +1,6 @@
 from pyrogram import enums, idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, BotCommand
-from IT_S6 import it_s6, app, bot, redis, version, SORUCE_EMJ, LOG
+from IT_S6 import it_s6, bot, redis, version, SORUCE_EMJ, LOG
 from IT_S6.plugins import ALL_PLUGINS
 from IT_S6.plugins.Autoname import auto_italia
 from .Langs import *
@@ -21,7 +21,6 @@ async def sa3ed_startup():
        redis.sadd("SUDOS", s1.id)
     await bot.start()
     await bot.set_bot_commands([BotCommand("start", "Start")])
-    await app.start()
     if redis.exists("Restart"):
        res_id = int(redis.get(("Restart")))
        try:
