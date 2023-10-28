@@ -4,13 +4,8 @@ python-dotenv==1.0.0
 asyncio
 requests
 redis
-py-tgcalls
-nodejs
 pytz
 APScheduler
-youtube-search-python
-yt_dlp
-pytube
 GitPython
 importlib
 git+https://github.com/sa3ed266it/telegraph.git
