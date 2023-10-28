@@ -6,8 +6,7 @@ load_dotenv()
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 
-SESSION1 = getenv("SESSION1")
-SESSION2 = getenv("SESSION2") or None
+SESSION = getenv("SESSION")
 
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_USER = getenv("BOT_USER")
