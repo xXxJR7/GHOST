@@ -11,7 +11,6 @@ R_MENU = types.InlineKeyboardMarkup(
              types.InlineKeyboardButton(h10_,callback_data="b_update"),
              ],
              [
-             types.InlineKeyboardButton(h11_,callback_data="b_play"),
              types.InlineKeyboardButton(h12_,callback_data="b_clone"),
              ],
              [
