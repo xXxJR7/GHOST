@@ -4,8 +4,6 @@ from telegraph import Telegraph, upload_file
 from ..Langs import *
 import os, sys, subprocess, asyncio
 
-help_photo_url = "" or redis.get("Help_Pic")
-
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="Sa3ed")
 auth_url = r["auth_url"]
@@ -32,9 +30,6 @@ VARS = types.InlineKeyboardMarkup(
              [
              types.InlineKeyboardButton(v5_,callback_data="v5"),
              types.InlineKeyboardButton(v6_,callback_data="v6"),
-             ],
-             [
-             types.InlineKeyboardButton(v9_,callback_data="v9"),
              ],
              [
              types.InlineKeyboardButton(b_button,callback_data="S_ttings"),
@@ -99,24 +94,6 @@ auto_fonts = types.InlineKeyboardMarkup(
              types.InlineKeyboardButton(b_button,callback_data="VARS"),
              ]
              ])
-
-Y_O_P = types.InlineKeyboardMarkup(
-            [[
-             types.InlineKeyboardButton("𝐘𝐞𝐬",callback_data="agree"),
-             types.InlineKeyboardButton("𝐍𝐨",callback_data="disagree"),
-             ],
-             [
-             types.InlineKeyboardButton(b_button,callback_data="VARS"),
-             ]
-             ]
-             )
-
-Y_O_P_BACK = types.InlineKeyboardMarkup(
-            [[
-             types.InlineKeyboardButton(b_button,callback_data="yesorno"),
-             ]
-             ]
-             )
 
 BACK = types.InlineKeyboardMarkup(
             [[
@@ -267,34 +244,6 @@ async def B_lang(client, callback_query):
 async def v7(client, callback_query):
           await callback_query.edit_message_text(v_msg17, reply_markup=R_LANGS)
 
-@bot.on_callback_query(filters.regex('^v9'))
-async def v9(client, callback_query):
-          await callback_query.edit_message_text(c_music1, reply_markup=Y_O_P)
-
-@bot.on_callback_query(filters.regex('^agree'))
-async def agree(client, callback_query):
-         global state
-         if not redis.get("PLAY_C"):
-          if state == "normal":
-            state = "awaiting_play"
-            await callback_query.edit_message_text(f"**{SORUCE_EMJ} حسنا إبراء لذمتي ارسل هذة الجمله**\n{SORUCE_EMJ} `انا سأحمل ذنب كل أغنية أشغلها`", reply_markup=Y_O_P_BACK)
-          else:
-            return
-         else:
-          await callback_query.edit_message_text(c_music2, reply_markup=Y_O_P_BACK) 
-          
-@bot.on_callback_query(filters.regex('^disagree'))
-async def disagree(client, callback_query):
-         if not redis.get("PLAY_C"):
-          redis.set("PLAY_C", "True")
-          await callback_query.edit_message_text(f"**{SORUCE_EMJ} حسنا كان هذا إبراء لذمتي\nلقد تم تفعيل اوامر التشغيل**", reply_markup=Y_O_P_BACK)
-         else:
-          await callback_query.edit_message_text(c_music2, reply_markup=Y_O_P_BACK)    
-
-@bot.on_callback_query(filters.regex('^yesorno'))
-async def agree(client, callback_query):
-          await callback_query.edit_message_text(c_music1, reply_markup=Y_O_P)
-
 @bot.on_callback_query(filters.regex('^r1_hndlr'))
 async def r1_hndlr(client, callback_query):
           exists = redis.exists("HNDLR")
@@ -421,20 +370,9 @@ async def handle_autoemoji(client, message):
     subprocess.Popen([sys.executable, "-B", "-m", "IT_S6"], close_fds=True)
     sys.exit(0)
 
-async def handle_play(client, message):
-    global state
-    if message.text != "انا سأحمل ذنب كل أغنية أشغلها":
-       state = "normal"
-       return await message.reply(f"**{SORUCE_EMJ} الجملة غير صحيحة لم يتم تفعيل اوامر التشغيل**")
-    redis.set("PLAY_C", "True")
-    await message.reply(f"**{SORUCE_EMJ} حسنا كان هذا إبراء لذمتي\nلقد تم تفعيل اوامر التشغيل**")
-    await asyncio.sleep(0.5)
-    subprocess.Popen([sys.executable, "-B", "-m", "IT_S6"], close_fds=True)
-    sys.exit(0)
-
 state_handlers = {"awaiting_emoji": handle_emoji,
                   "awaiting_hndlr": handle_hndlr,
                   "awaiting_help_pic": handle_help_pic,
                   "awaiting_pm_pic": handle_pm_pic,
-                  "awaiting_autoemoji":handle_autoemoji,
-                  "awaiting_play":handle_play}
+                  "awaiting_autoemoji":handle_autoemoji
+                 }
