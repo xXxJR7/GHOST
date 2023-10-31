@@ -3,7 +3,7 @@ from IT_S6 import it_s6, bot, redis, HNDLR
 from ..Langs import *
 import config
 
-help_photo_url = "" or redis.get("Help_Pic")
+help_photo_url = redis.get("Help_Pic") or "https://graph.org/file/45867a18645d868c409c4.jpg"
 
 R_MENU = types.InlineKeyboardMarkup(
             [[
