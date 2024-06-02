@@ -8,7 +8,7 @@ import asyncio, importlib, config
 
 DEV_profile = InlineKeyboardMarkup(
             [[
-             InlineKeyboardButton("𝐒𝐀𝟑𝐄𝐃",url=f"https://t.me/IT_S6"),
+             InlineKeyboardButton("𝗠𝗔𝗛𝗠𝗢𝗨𝗗",url=f"https://t.me/xXx_JR"),
              ]]
              )
 
