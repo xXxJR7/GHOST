@@ -24,7 +24,7 @@ bot = Client(
 )
 
 MODULE = []
-UPSTREAM_REPO_URL = "https://github.com/sa3ed266it/ITALIA.git"
+UPSTREAM_REPO_URL = "https://github.com/xXxJR7/GHOST/tree/main"
 LANG = redis.get("LANGUAGE") or config.LANGUAGE
 SORUCE_EMJ = redis.get("SORUCE_EMJ") or "•"
 HNDLR = redis.get("HNDLR") or "."
