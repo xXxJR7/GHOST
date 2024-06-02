@@ -9,7 +9,7 @@ redis = redis.from_url(REDIS_INFO, decode_responses=True)
 SESSION = redis.get("SESSION") or config.SESSION
 
 it_s6=Client(
-    "IT_S6",
+    "xXx_JR",
     config.API_ID,
     config.API_HASH,
     in_memory=True,
@@ -17,7 +17,7 @@ it_s6=Client(
 )
 
 bot = Client(
-    "IT_S6",
+    "xXx_JR",
     config.API_ID,
     config.API_HASH,
     bot_token=config.BOT_TOKEN,
@@ -30,7 +30,7 @@ SORUCE_EMJ = redis.get("SORUCE_EMJ") or "•"
 HNDLR = redis.get("HNDLR") or "."
 if HNDLR == "NO_HNDLR":
     HNDLR = ""
-My_User = "@IT_S6"
+My_User = "@xXx_JR"
 
 if not config.API_ID:
    print("API_ID Not Found")
